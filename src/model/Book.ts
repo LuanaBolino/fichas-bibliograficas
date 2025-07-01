@@ -1,8 +1,12 @@
-export default class Book{
-    private title!: string;
-    private author!: string;
-    private year!: number;
-    private edition!: number;
+import { ReadingStatus } from "./ReadingStatus";
+import IBook from "./IBook";
+
+export default abstract class Book implements IBook {
+  private title!: string;
+  private author!: string;
+  private year!: number;
+  private edition!: number;
+  private status!: ReadingStatus;
 
     // Title--------------------------------------------
     public getTitle(): string{
@@ -40,11 +44,21 @@ export default class Book{
         this.edition = edition;
     }
 
+    // Status-------------------------------------------
+    public getStatus(): ReadingStatus {
+        return this.status;
+    }
+
+    public setStatus (status: ReadingStatus): void {
+        this.status = status;
+    }
+
     //	Bibliographic record----------------------------
 
-    public bibliographicRecord(): string{
-        let card: string = "";
-        card = `Título: ${this.title};\nAutor: ${this.author};\nAno: ${this.year};\nEdição: ${this.edition};`
-        return card;
-    }
+    public baseBibliographicRecord(): string {
+  return `Título: ${this.title};\nAutor: ${this.author};\nAno: ${this.year};\nEdição: ${this.edition};\nStatus: ${this.status}`;
+}
+
+public abstract bibliographicRecord(): string;
+
 }

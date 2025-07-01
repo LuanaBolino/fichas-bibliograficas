@@ -23,10 +23,10 @@ export default class Ebook extends Book {
     }
 
     //	Bibliographic record----------------------------
-    public bibliographicRecord(): string{
-        let card: string = "";
-        card = super.bibliographicRecord();
-        card += `\nTamanho do Ebook: ${this.fileSize};\nTipo do Arquivo: ${this.format};`
-        return card;
-    }
+    public bibliographicRecord(): string {
+  let card = this.baseBibliographicRecord();
+  card += `\nTamanho do Ebook: ${this.fileSize};\nTipo do Arquivo: ${this.format};`;
+  return card;
+}
+
 }

@@ -1,7 +1,7 @@
 import Database from "../db/Database";
-import Book from "../model/Book";
 import Ebook from "../model/Ebook";
 import MainScreen from "../view/MainScreen";
+import PrintedBook from "../model/PrintedBook";
 
 export default class MainController{
     public db: Database = new Database();
@@ -10,9 +10,9 @@ export default class MainController{
         new MainScreen(this);
     }
 
-    public getNewBook(): Book{
-        return new Book();
-    }
+public getNewPrintedBook(): PrintedBook { 
+    return new PrintedBook();
+  }
 
     public getNewEbook(): Ebook{
         return new Ebook();

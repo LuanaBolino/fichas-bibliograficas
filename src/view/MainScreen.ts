@@ -1,5 +1,4 @@
 import promptSync from 'prompt-sync';
-import Database from '../db/Database';
 import MainController from '../controller/MainController';
 import Register from './Register';
 
@@ -27,13 +26,13 @@ export default class MainScreen{
                     this.register.addEbook();
                     break;
                 case 3:
-                    console.log(this.control.db.listAllBooks());
+                    console.log(this.control.db.listOnlyPrintedBooks());
                     break;
                 case 4:
-                    console.log(this.control.db.listAllEbooks());
+                    console.log(this.control.db.listOnlyEbooks());
                     break;
                 case 5:
-                    console.log(this.control.db.listAll());
+                    console.log(this.control.db.listAllBooks());
                     break;
                 case 6:
                     continues = false;
